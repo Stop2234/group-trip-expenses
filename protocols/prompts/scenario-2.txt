@@ -1,0 +1,10 @@
+Составь итоговый отчёт по поездке и сохрани его в reports/report-trip-2.md.
+
+Источник данных: http://127.0.0.1:3102 (REST API: GET /api/state, GET /api/settlements). Если в этой сессии подключены MCP-инструменты сервера trip-expenses — используй их в первую очередь.
+
+Скилл: trip-expense-report (.opencode/skills/trip-expense-report/SKILL.md).
+Оформление: STYLE_GUIDE.md, шаблон: .opencode/skills/trip-expense-report/templates/report-template.md.
+
+После того как соберёшь отчёт, запусти именно эти две команды и приведи их вывод:
+node tools/check-style.mjs reports/report-trip-2.md --state data/trip-scenario2.json
+node tools/check-numbers.mjs --state data/trip-scenario2.json --report reports/report-trip-2.md

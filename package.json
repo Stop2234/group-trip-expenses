@@ -1,0 +1,36 @@
+{
+  "name": "group-trip-expenses",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run dev:server & npm run dev:web",
+    "dev:web": "vite",
+    "dev:server": "tsx server/index.ts",
+    "start": "NODE_ENV=production tsx server/index.ts",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc -b --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "express": "^5.3.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zod": "^4.6.6"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "tsx": "^4.0.0",
+    "typescript": "~5.6.2",
+    "vite": "^6.0.5",
+    "vitest": "^3.0.5"
+  }
+}

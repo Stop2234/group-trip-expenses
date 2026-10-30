@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Расходы группы после поездки</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <header class="app-header">
+        <h1>Расходы группы после поездки</h1>
+        <p class="app-subtitle">
+          Учёт общих расходов, расчёт долей и взаиморасчётов
+        </p>
+        <div class="header-actions">
+          <button id="load-demo" class="btn btn-secondary">Загрузить демо-данные</button>
+          <button id="reset-data" class="btn btn-danger">Начать новую поездку</button>
+        </div>
+      </header>
+
+      <nav class="tabs">
+        <button class="tab-button tab-button-active" data-tab="participants">Участники</button>
+        <button class="tab-button" data-tab="expenses">Расходы</button>
+        <button class="tab-button" data-tab="summary">Итоги и переводы</button>
+      </nav>
+
+      <main>
+        <section id="tab-participants" class="tab-panel tab-panel-active">
+          <div class="card">
+            <h2>Добавить участника</h2>
+            <form id="participant-form" class="inline-form">
+              <div class="form-row">
+                <label for="participant-name">Имя участника</label>
+                <input
+                  type="text"
+                  id="participant-name"
+                  name="participant-name"
+                  placeholder="Например, Егор"
+                  maxlength="50"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">Добавить</button>
+            </form>
+            <div id="participant-error" class="form-error" role="alert"></div>
+          </div>
+
+          <div class="card">
+            <h2>Участники поездки</h2>
+            <div id="participants-list"></div>
+          </div>
+        </section>
+
+        <section id="tab-expenses" class="tab-panel">
+          <div class="card">
+            <h2 id="expense-form-title">Добавить расход</h2>
+            <form id="expense-form">
+              <div class="form-row">
+                <label for="expense-title">Название расхода</label>
+                <input
+                  type="text"
+                  id="expense-title"
+                  name="expense-title"
+                  placeholder="Например, Ужин"
+                  maxlength="100"
+                  required
+                />
+              </div>
+              <div class="form-row">
+                <label for="expense-amount">Сумма, ₽</label>
+                <input
+                  type="text"
+                  id="expense-amount"
+                  name="expense-amount"
+                  placeholder="0.00"
+                  inputmode="decimal"
+                  required
+                />
+              </div>
+              <div class="form-row">
+                <label for="expense-payer">Плательщик</label>
+                <select id="expense-payer" name="expense-payer" required>
+                  <option value="">— выберите плательщика —</option>
+                </select>
+              </div>
+
+              <fieldset class="form-group">
+                <legend>Способ распределения</legend>
+                <label class="radio-label">
+                  <input type="radio" name="split-mode" value="equal" checked />
+                  <span>Равное между выбранными</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="split-mode" value="custom" />
+                  <span>Неравное (задать суммы долей)</span>
+                </label>
+              </fieldset>
+
+              <fieldset class="form-group">
+                <legend>Между кем делится расход</legend>
+                <div id="split-participants" class="checkbox-group"></div>
+              </fieldset>
+
+              <div id="custom-amounts" class="hidden"></div>
+
+              <div class="form-actions">
+                <button type="submit" id="expense-submit" class="btn btn-primary">
+                  Добавить расход
+                </button>
+                <button type="button" id="expense-cancel" class="btn btn-secondary hidden">
+                  Отмена
+                </button>
+              </div>
+            </form>
+            <div id="expense-error" class="form-error" role="alert"></div>
+          </div>
+
+          <div class="card">
+            <h2>Расходы</h2>
+            <div id="expenses-list"></div>
+          </div>
+        </section>
+
+        <section id="tab-summary" class="tab-panel">
+          <div class="card">
+            <h2>Итоги и взаиморасчёты</h2>
+            <div id="summary-content"></div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <p>Данные хранятся локально в вашем браузере (localStorage).</p>
+      </footer>
+    </div>
+
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>

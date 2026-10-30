@@ -1,0 +1,16 @@
+{
+  "name": "oneshot-expenses",
+  "version": "1.0.0",
+  "description": "Расходы группы после поездки: расчёт долей, балансов и взаиморасчётов",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node --test",
+    "typecheck": "node --check server.js && node --check src/app.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

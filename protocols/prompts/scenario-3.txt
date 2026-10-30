@@ -1,0 +1,6 @@
+Составь итоговый отчёт по поездке и сохрани его в reports/report-trip-3.md.
+
+Источник данных: http://127.0.0.1:3103 (REST API: GET /api/state, GET /api/settlements). Если в этой сессии подключены MCP-инструменты сервера trip-expenses — используй их в первую очередь.
+
+Скилл: trip-expense-report (.opencode/skills/trip-expense-report/SKILL.md).
+Оформление: STYLE_GUIDE.md, шаблон: .opencode/skills/trip-expense-report/templates/report-template.md.

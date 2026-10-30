@@ -1,0 +1,12 @@
+node_modules
+dist
+dist-ssr
+*.local
+.DS_Store
+*.tsbuildinfo
+data/
+*.corrupt-*
+
+# Архивы и экспорт сессий (не для публикации)
+*.zip
+oneshot-expenses-history.json
